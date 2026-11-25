@@ -1,0 +1,5 @@
+__pycache__/
+.cache/
+.example/*.pdf
+.example/manual.print.html
+.example/manual.check.html

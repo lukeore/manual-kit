@@ -1,0 +1,89 @@
+<!-- ============================================================ COVER
+     No header, footer or thumb tabs. .art fills the right-hand 210 mm square; .txt and .meta sit on the left. -->
+<section class="page cover">
+  <div class="art"><img src="img/cover.svg" alt=""></div>
+  <div class="txt">
+    <div class="kicker">Project manual &middot; {{ISSUE}}</div>
+    <h1>Widget<span>-</span>1</h1>
+    <div class="sub">An example manual that shows every page type and component in the kit.</div>
+    <div class="ids">
+      <span><b>WG-001</b>Main board</span>
+      <span><b>WG-002</b>Sensor board</span>
+    </div>
+  </div>
+  <div class="meta">
+    <div>Covers<b>Hardware, firmware</b></div>
+    <div>Status<b>Example</b></div>
+    <div>Author<b>A. Author &middot; {{DATE}}</b></div>
+    <div class="legal">&copy; 2027 A. Author · Licensed under CC BY 4.0</div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTENTS
+     <nav class="toc"></nav> is filled by the build from every <h2> after the first chapter. -->
+<section class="page">
+  <div class="body">
+    <div class="c3 stack">
+      <h1>Contents</h1>
+      <div class="note small">
+        <h4>Reading on screen</h4>
+        The manual is set on A4 landscape so that a whole page fits a monitor at <b>Fit page</b>. Turn on the
+        bookmarks panel in your PDF viewer for the full outline.
+      </div>
+      <div class="ref small">
+        <h4>Printing</h4>
+        Pages tagged <span class="chip g" style="font-size:6pt;padding:0 1.2mm">REFERENCE</span> in the header hold
+        tables and data meant for the bench. They print cleanly on A4 landscape at 100&nbsp;%.
+      </div>
+    </div>
+    <div class="c9">
+      <nav class="toc"></nav>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ HOW TO USE -->
+<section class="page">
+  <div class="body">
+    <div class="c12"><h1>Using this manual</h1></div>
+
+    <div class="c4 stack">
+      <h3>Who it is for</h3>
+      <div class="card">
+        <h4><span class="chip g">APP</span>Writing applications</h4>
+        <p>Read <a href="#p{{page:ch1}}">chapter&nbsp;1</a> first. Page {{page:pinout}} has the pinout.</p>
+      </div>
+      <div class="card">
+        <h4><span class="chip o">BUILD</span>Building and bringing up</h4>
+        <p>The bring-up checklist is on page {{page:bringup}}.</p>
+      </div>
+    </div>
+
+    <div class="c4 stack">
+      <h3>Conventions</h3>
+      <p><b>Net colours.</b> Every pinout, diagram and table uses the same colour for the same kind of net:</p>
+      <div class="legend" style="flex-direction:column;gap:1.3mm">
+        <span><span class="net v5">VBUS</span>&ensp;5&nbsp;V supply</span>
+        <span><span class="net v3">+3V3</span>&ensp;3.3&nbsp;V supply</span>
+        <span><span class="net gnd">GND</span>&ensp;ground</span>
+        <span><span class="net data">DATA</span>&ensp;data output</span>
+        <span><span class="net i2c">SDA</span> <span class="net i2c">SCL</span>&ensp;I²C</span>
+        <span><span class="net aux">AUX</span>&ensp;general purpose</span>
+        <span><span class="net id">ID</span>&ensp;identification</span>
+        <span><span class="net ctl">EN</span>&ensp;control</span>
+      </div>
+      <p style="margin-top:2mm"><b>Requirement tags</b> such as <span class="req">PWR-03</span> point back to the
+        clause in the source specification.</p>
+      <p><b>Signals</b> ending in <code>_n</code> are active low.</p>
+    </div>
+
+    <div class="c4 stack">
+      <h3>Boxes</h3>
+      <div class="legend-box">
+        <div class="warn"><b>Warning</b>: could damage hardware or break an interface rule. Read these before acting.</div>
+        <div class="note"><b>Information</b>: background, tips and how-to. Nothing breaks if you skip it.</div>
+        <div class="ref"><b>Reference</b>: points to the page, specification, file or tool where the full detail lives.</div>
+      </div>
+    </div>
+  </div>
+</section>

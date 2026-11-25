@@ -1,0 +1,63 @@
+# Template: copy to .github/workflows/manual.yml in a repo that has the kit at doc/manual/kit.
+# Pull requests and pushes to main: build, fail on any page overflow, upload the PDF and page previews.
+# A manual-issue-N tag: also check manual.json's issue matches the tag and attach the PDF to a GitHub release.
+# If the kit repo is private, the checkout needs a token with read access to it (see README).
+name: manual
+
+on:
+  pull_request:
+    paths: ['doc/manual/**', '.github/workflows/manual.yml']
+  push:                        # no paths filter here: it would also have to match on a tag push
+    branches: [main]
+    tags: ['manual-issue-*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write          # to create the release on a tag
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: doc/manual/kit/requirements.txt
+
+      - run: python -m pip install -r doc/manual/kit/requirements.txt
+
+      - name: Build manual
+        env:
+          MANUAL_BROWSER: google-chrome
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/manual-issue-* ]]; then
+            python doc/manual/kit/build_manual.py --expect-issue "Issue ${GITHUB_REF_NAME#manual-issue-}"
+          else
+            python doc/manual/kit/build_manual.py
+          fi
+
+      - name: Page previews
+        if: always()
+        run: |
+          if ls doc/manual/*.pdf >/dev/null 2>&1; then python doc/manual/kit/preview.py --dpi 60; fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manual
+          path: |
+            doc/manual/*.pdf
+            doc/manual/.cache/preview/*.png
+          if-no-files-found: ignore
+          include-hidden-files: true   # the previews live under .cache
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/manual-issue-')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Project manual ${{ github.ref_name }}
+          files: doc/manual/*.pdf

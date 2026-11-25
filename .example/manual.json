@@ -1,0 +1,15 @@
+{
+  "title": "Widget-1 Project Manual",
+  "output": "Widget-1_Project_Manual.pdf",
+  "issue": "Issue 0",
+  "date": "1 January 2027",
+
+  "brand_html": "Widget<b>-</b>1",
+  "header_label": "Project manual",
+  "footer_html": "&copy; 2027 A. Author &middot; CC BY 4.0",
+
+  "author": "A. Author",
+  "copyright": "(c) 2027 A. Author. Licensed under CC BY 4.0.",
+  "subject": "Widget-1: hardware and firmware reference",
+  "keywords": "Widget-1, example, manual kit"
+}

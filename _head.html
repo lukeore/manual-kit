@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}}</title>
+<meta name="author" content="{{AUTHOR}}">
+<link rel="stylesheet" href="{{KIT}}/manual.css">
+</head>
+<body>
+<!-- Shared schematic symbols. Colour follows currentColor; set style="color:var(--n-5v)" on a <use> to tint it. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- resistor, IEC box. -h: pins at (-14,0) and (14,0). -v: pins at (0,-14) and (0,14) -->
+    <symbol id="res-h" overflow="visible"><path d="M-14 0H-7M7 0H14" stroke="currentColor" stroke-width="1.3" fill="none"/><rect x="-7" y="-2.8" width="14" height="5.6" rx=".8" fill="#fff" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="res-v" overflow="visible"><path d="M0 -14V-7M0 7V14" stroke="currentColor" stroke-width="1.3" fill="none"/><rect x="-2.8" y="-7" width="5.6" height="14" rx=".8" fill="#fff" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <!-- capacitor. -v: pins at (0,-10) and (0,10) -->
+    <symbol id="cap-v" overflow="visible"><path d="M0 -10V-1.8M0 1.8V10M-6 -1.8H6M-6 1.8H6" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+    <symbol id="cap-h" overflow="visible"><path d="M-10 0H-1.8M1.8 0H10M-1.8 -6V6M1.8 -6V6" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+    <!-- ground, pin at (0,0) -->
+    <symbol id="gnd" overflow="visible"><path d="M0 0V5M-6 5H6M-3.8 7.6H3.8M-1.6 10.2H1.6" stroke="#5f6b74" stroke-width="1.3" fill="none"/></symbol>
+    <!-- supply flag, pin at (0,0), arrow up -->
+    <symbol id="sup" overflow="visible"><path d="M0 0V-6" stroke="currentColor" stroke-width="1.3"/><path d="M-5 -6H5L0 -11Z" fill="currentColor"/></symbol>
+    <!-- LED, vertical: anode (0,-12) top, cathode (0,12) bottom -->
+    <symbol id="led-v" overflow="visible"><path d="M0 -12V-4M0 4V12M-5 4H5" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M-5 -4H5L0 4Z" fill="#fff" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 -3l4 -4M8 1l4 -4" stroke="#e5484d" stroke-width="1"/><path d="M10 -7l-2.2 .4 1.8 1.8zM12 -3l-2.2 .4 1.8 1.8z" fill="#e5484d"/></symbol>
+    <!-- TVS to ground (one channel of an SRV05-4), pin at (0,0) -->
+    <symbol id="tvs" overflow="visible"><path d="M0 0V5M0 13V16" stroke="currentColor" stroke-width="1.2"/><path d="M-4.5 5H4.5L0 13Z M-4.5 13H4.5" fill="#fff" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M-4.5 13l-1.6 1.6M4.5 13l1.6 -1.6" stroke="currentColor" stroke-width="1.2"/><use href="#gnd" y="16"/></symbol>
+    <!-- push switch, horizontal: pins at (-12,0) (12,0) -->
+    <symbol id="sw-h" overflow="visible"><path d="M-12 0H-6M6 0H12" stroke="currentColor" stroke-width="1.3"/><circle cx="-6" cy="0" r="1.4" fill="#fff" stroke="currentColor" stroke-width="1.2"/><circle cx="6" cy="0" r="1.4" fill="#fff" stroke="currentColor" stroke-width="1.2"/><path d="M-7 -4.5H7M0 -4.5V-9" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="jn" overflow="visible"><circle r="2.1" fill="currentColor"/></symbol>
+    <symbol id="arrow-r" overflow="visible"><path d="M-6 -3.4L0 0L-6 3.4Z" fill="currentColor"/></symbol>
+  </defs>
+</svg>

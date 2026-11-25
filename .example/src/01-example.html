@@ -1,0 +1,108 @@
+<!-- ============================================================ CH1 OPENER
+     data-ch starts a chapter: it gets a thumb tab and a contents entry. The dark .side panel holds the big
+     number, the title, a short summary and <nav class="toc-mini"> (filled with this chapter's h2s).
+     The body area beside it is 169 x 178 mm. -->
+<section class="page opener" data-ch="1" data-ch-title="System at a glance" id="ch1">
+  <div class="side">
+    <div class="no">01</div>
+    <h1>System at a glance</h1>
+    <p>Two or three short paragraphs: what the thing is, and what this chapter covers.</p>
+    <p>Use <b style="color:#fff">white bold</b> for the one term the reader must take away.</p>
+    <nav class="toc-mini"></nav>
+  </div>
+  <div class="body">
+    <figure class="c7 stage center" style="height:178mm"><img class="img-fit" src="img/cover.svg" alt="" style="width:80%;height:80%"></figure>
+    <div class="c5 cards" style="grid-template-rows:repeat(2,1fr);height:178mm">
+      <div class="card"><h4><span class="chip g">WG-001</span>Main board</h4>
+        <p>One card per board or part. A chip with the part number, a title, then two or three lines.</p></div>
+      <div class="card"><h4><span class="chip">WG-002</span>Sensor board</h4>
+        <p><span class="chip g">green</span> for the main item, <span class="chip">ink</span> for others, and
+          <span class="chip o">outline</span> for passive parts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTENT PAGE
+     .body is a 12-column grid, 259 x 178 mm. Lay blocks out with .c1-.c12 and stack them with .stack. -->
+<section class="page">
+  <div class="body">
+    <div class="c12"><h2>Architecture <span class="k">and key figures</span></h2>
+      <p class="lede">A lede paragraph says in one or two sentences what the page shows.</p></div>
+
+    <div class="c12 stats" style="grid-template-columns:repeat(4,1fr)">
+      <div class="stat dark"><b>500<small>mA</small></b><span>total budget <span class="req" style="background:#22302a;color:#6ee7a8">PWR-02</span></span></div>
+      <div class="stat"><b>3.3<small>V</small></b><span>logic level</span></div>
+      <div class="stat"><b>16<small>pins</small></b><span>accessory connector</span></div>
+      <div class="stat acc"><b>≈ 20<small>%</small></b><span>an accent figure</span></div>
+    </div>
+
+    <figure class="c7">
+      <svg class="dg" viewBox="0 0 520 230">
+        <rect class="zone" x="6" y="6" width="508" height="218" rx="10"/>
+        <text class="t-h" x="18" y="24">WG-001 main board</text>
+        <rect class="blk-d" x="24" y="70" width="110" height="80" rx="7"/>
+        <text class="t-h t-w" x="36" y="94">USB host</text>
+        <text class="t-s" x="36" y="108" style="fill:#a9b8b0">5 V, serial</text>
+        <rect class="ic" x="200" y="50" width="120" height="120" rx="7" style="fill:var(--accent-wash);stroke:var(--accent)"/>
+        <text class="t-h" x="212" y="70">MCU</text><text class="t-s" x="212" y="83">any microcontroller</text>
+        <rect class="ic-f" x="380" y="50" width="120" height="44" rx="6"/>
+        <text class="t-h" x="390" y="68">Power switch</text><text class="t-s" x="390" y="82">current limited</text>
+        <rect class="ic-f" x="380" y="126" width="120" height="44" rx="6"/>
+        <text class="t-h" x="390" y="144">Buffer</text><text class="t-s" x="390" y="158">3.3 → 5 V</text>
+        <path class="w v5" d="M134 92H200" style="stroke-width:2.4"/><text class="t-m tv5" x="140" y="86">VBUS</text>
+        <path class="w data" d="M320 148H380"/><text class="t-m tdata" x="326" y="142">DATA</text>
+        <path class="w ctl dash" d="M320 72H380"/><text class="t-m tctl" x="326" y="66">EN</text>
+        <path class="w i2c" d="M260 170V205H440V170"/><text class="t-m ti2c mid" x="350" y="200">I²C</text>
+      </svg>
+      <figcaption><span class="fig-num">Figure 1.1</span> Hand-drawn SVG with <code>class="dg"</code>. Wires use
+        the net colour classes (<code>v5</code>, <code>data</code>, <code>ctl</code> …) and text the <code>t…</code> ones.</figcaption>
+    </figure>
+
+    <div class="c5 stack">
+      <h3>Callouts</h3>
+      <div class="warn"><h4>Do not hot-plug</h4>Switch off the supply before you fit the accessory.</div>
+      <div class="note"><h4>Tip</h4>Use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the program.</div>
+      <div class="ref"><h4>Full detail</h4>The pinout is on page {{page:pinout}}.</div>
+      <pre><span class="c"># code block: .c comment, .k keyword, .s string, .n number</span>
+<span class="k">import</span> widget
+widget.<span class="n">blink</span>(<span class="s">"red"</span>, <span class="n">3</span>)</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ REFERENCE PAGE
+     data-ref adds the REFERENCE tag. Keep these printable: white background, tables, no dark panels. -->
+<section class="page" data-ref>
+  <div class="body">
+    <div class="c12"><h2 id="pinout">Connector pinout</h2></div>
+    <div class="c7">
+      <table class="zebra">
+        <thead><tr><th class="num" style="width:10mm">Pin</th><th style="width:26mm">Net</th><th>Function</th><th class="num" style="width:18mm">Max</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><span class="net v5">VBUS</span></td><td>5 V supply, switched</td><td class="num">300 mA</td></tr>
+          <tr><td class="num">2</td><td><span class="net gnd">GND</span></td><td>Ground</td><td class="num">–</td></tr>
+          <tr><td class="num">3</td><td><span class="net v3">+3V3</span></td><td>3.3 V supply</td><td class="num">100 mA</td></tr>
+          <tr><td class="num">4</td><td><span class="net data">DATA</span></td><td>5 V data output</td><td class="num">–</td></tr>
+          <tr><td class="num">5</td><td><span class="net i2c">SDA</span></td><td>I²C data</td><td class="num">400 kHz</td></tr>
+          <tr><td class="num">6</td><td><span class="net i2c">SCL</span></td><td>I²C clock</td><td class="num">400 kHz</td></tr>
+          <tr><td class="num">7</td><td><span class="net id">ID</span></td><td>Board ID resistor</td><td class="num">–</td></tr>
+          <tr><td class="num">8</td><td><span class="net ctl">EN</span></td><td>Accessory enable, active high</td><td class="num">–</td></tr>
+          <tr class="sum"><td></td><td colspan="2">Total supply</td><td class="num">400 mA</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="c5 stack">
+      <h3 id="bringup">Bring-up checklist</h3>
+      <ul class="checklist">
+        <li>Check the supply rails for shorts before power-up.</li>
+        <li>Power from a current-limited bench supply.</li>
+        <li>Flash the firmware and check the serial console.</li>
+      </ul>
+      <h3>Key-value list</h3>
+      <dl class="kv">
+        <dt>Connector</dt><dd>2×4, 2.54 mm</dd>
+        <dt>Mating part</dt><dd><span class="mono">ABC-123</span></dd>
+      </dl>
+    </div>
+  </div>
+</section>

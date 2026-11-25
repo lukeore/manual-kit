@@ -1,0 +1,43 @@
+<!-- ============================================================ BACK PAGE: REVISION HISTORY
+     data-ch="~" starts back matter: listed in the contents, but no number and no thumb tab.
+     One row per released issue; the blank rows are for printed markup. -->
+<section class="page" data-ch="~" data-ch-title="Revision history" data-ref id="revisions">
+  <div class="body">
+    <div class="c12"><h2>Revision history</h2>
+      <p class="small muted" style="margin:0">Each released issue of this manual gets one row. Between releases, note changes under a row marked <i>draft</i>.</p></div>
+    <div class="c8">
+      <table class="tight revs">
+        <thead><tr><th style="width:12mm">Issue</th><th style="width:21mm">Date</th><th style="width:34mm">Pages / sections</th><th>Change and reason</th><th style="width:14mm">By</th></tr></thead>
+        <tbody>
+          <tr><td><b>0</b></td><td style="white-space:nowrap">1 Jan 2027</td><td>All</td><td>First issue.</td><td>AA</td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="blank"><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="c4 small stack">
+      <h3>Document control</h3>
+      <table class="tight doc-ctl">
+        <tbody>
+          <tr><td>Document</td><td>Widget-1 Project Manual</td></tr>
+          <tr><td>This issue</td><td>{{ISSUE}} · {{DATE}}</td></tr>
+          <tr><td>Author</td><td>A. Author (AA)</td></tr>
+          <tr><td>Sources</td><td><code>doc/manual/src/</code></td></tr>
+        </tbody>
+      </table>
+      <h3>Releasing a new issue</h3>
+      <ol>
+        <li>Complete this issue's row: date, pages, what changed and why.</li>
+        <li>Set <code>issue</code> and <code>date</code> in <code>manual.json</code>.</li>
+        <li>Rebuild. The build must report <code>overflow: none</code>.</li>
+        <li>Commit, then tag the commit <code>manual-issue-N</code>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
