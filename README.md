@@ -107,4 +107,10 @@ git add doc/manual/kit && git commit -m "Update manual kit"
 
 ## Licences
 
-The fonts are under the SIL Open Font License 1.1 (`fonts/OFL.txt`).
+- **Scripts** (`build_manual.py`, `preview.py`, workflows): MIT.
+- **Style** (`manual.css`, `_head.html`, `.example/`, this README and `CLAUDE.md`): CC BY 4.0. Credit "Manual kit by
+  Luke Orehawa, CC BY 4.0".
+- **Fonts**: SIL Open Font License 1.1 (`fonts/OFL.txt`).
+
+A manual you write with the kit is your own work, under a licence of your choice. See `LICENSE` for the details, and
+`LICENSES/` for the full texts.

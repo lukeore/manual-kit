@@ -1,0 +1,23 @@
+Manual kit
+Copyright (c) 2026 Luke Orehawa
+
+Different parts of this repository are licensed differently. The full licence
+texts are in LICENSES/.
+
+  Scripts       MIT              LICENSES/MIT.txt
+    build_manual.py, preview.py, requirements.txt, workflow/ and .github/.
+
+  Style         CC-BY-4.0        LICENSES/CC-BY-4.0.txt
+    manual.css, _head.html (page shell and schematic symbols), the example
+    manual in .example/, README.md and CLAUDE.md.
+
+Attribution for CC-BY-4.0 reuse: "Manual kit by Luke Orehawa, CC BY 4.0".
+
+A manual you write with this kit is your own work, under a licence of your
+choice. Building it with the kit's stylesheet does not put its content under
+CC BY 4.0.
+
+Third-party material, not covered by the licences above:
+
+  - fonts/: Space Grotesk, Inter and JetBrains Mono, under the SIL Open Font
+    License 1.1 (fonts/OFL.txt).
