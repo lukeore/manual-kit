@@ -20,7 +20,7 @@ What it gives you:
 git submodule add https://github.com/lukeore/manual-kit.git doc/manual/kit
 cp -r doc/manual/kit/.example/manual.json doc/manual/kit/.example/src doc/manual/kit/.example/img doc/manual/
 cp doc/manual/kit/workflow/manual.yml .github/workflows/manual.yml
-printf '.cache/\nmanual.check.html\n' >> doc/manual/.gitignore
+printf '.cache/\n*.pdf\nmanual.print.html\nmanual.check.html\n' >> doc/manual/.gitignore
 ```
 
 Then:
@@ -90,6 +90,10 @@ release.
 If this kit repo is private, the default `GITHUB_TOKEN` can't read it. Either make the kit public, or give the
 checkout step a token that can, for example a fine-grained personal access token with read access to this repo,
 stored as a secret: `with: { submodules: true, token: ${{ secrets.MANUAL_KIT_TOKEN }} }`.
+
+Don't commit the PDF. Let CI publish it to a release on each `manual-issue-N` tag, and link to the release
+download (`…/releases/download/manual-issue-N/<output>.pdf`) from the project README. Pull requests get the PDF
+and previews as a workflow artifact for review. Artifacts expire, so they are not the published copy.
 
 This repo's own workflow builds `.example` on every push.
 

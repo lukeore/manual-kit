@@ -139,8 +139,9 @@ diagrams. Classes:
 1. Complete the issue's row on the revision history page: date, pages, what changed and why.
 2. Set `issue` and `date` in `manual.json`.
 3. Rebuild. It must report `overflow: none`.
-4. Commit the sources (and the PDF, if the project commits it), then tag `manual-issue-N`. CI checks that the tag
-   matches `issue` and attaches the PDF to a GitHub release.
+4. Commit the sources, not the PDF (it is gitignored). Then push a `manual-issue-N` tag. CI checks that the tag
+   matches `issue` and publishes the PDF as a GitHub release. Point the project README's PDF link at the new
+   release.
 
 ## Changing the kit itself
 
